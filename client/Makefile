@@ -2,17 +2,16 @@
 CC = gcc
 CFLAGS = -g -Wall
 OUTFILE = client.out
+MAIN = client.c
 
 LINK = -lpthread -lcommons -lcspecs
 
 SRC = $(shell find ./src -type f -iname "*.c" -exec basename {} \;)
 OBJ = $(SRC:%.c=./obj/%.o)
 
-SHARED = $(shell find ../shared/obj/*.o)
-
 #Reglas
 build: makefolder $(OBJ)
-	$(CC) -o $(OUTFILE) main.c $(OBJ) $(SHARED) $(CFLAGS)
+	$(CC) -o $(OUTFILE) $(MAIN) $(OBJ) $(CFLAGS)
 
 ./obj/%.o: ./src/%.c
 	$(CC) -c $< -o $@ $(LINK) $(CFLAGS)
