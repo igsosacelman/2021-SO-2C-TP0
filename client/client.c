@@ -15,6 +15,7 @@ int main(void)
 
 	// Usando el logger creado previamente
 	// Escribi: "Hola! Soy un log"
+	// log_info(logger, "Hola! Soy un log");
 
 	config = iniciar_config();
 
@@ -62,7 +63,7 @@ void leer_consola(t_log* logger)
 	char* leido;
 
 	//El primero te lo dejo de yapa
-	leido = readline(">");
+	// leido = readline(">");
 
 	// Acá la idea es que imprimas por el log lo que recibis de la consola.
 
