@@ -1,2 +1,13 @@
-# 2021-SO-2C-TP0
-Repositorio para el TP0 de sistemas operativos, UTN, 2do cuatrimestre, 2021
+# Sistemas Operativos - TP0
+
+## ¿De qué trata?
+
+El TP0 es una práctica inicial para empezar a familiarizarse con algunas de las herramientas necesarias para el trabajo práctico cuatrimestral de la materia Sistemas Operativos.
+
+Es un ejercicio corto y sirve como base para empezar el TP cuatrimestral.
+
+## Consigna
+
+Podés encontrar la consigna en el siguiente [link].
+
+[link]: https://faq.utnso.com.ar/tp0-enunciado
