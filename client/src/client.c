@@ -20,6 +20,13 @@ int main(void)
 	/* ---------------- ARCHIVOS DE CONFIGURACION ---------------- */
 
 	config = iniciar_config();
+	if(config == NULL)
+	{
+
+		log_error(logger,"No se pudo abrir el archivo de configuracion.");
+		return -1;
+
+	}
 
 	string_append(&ip, config_get_string_value(config, "IP"));
 	string_append(&puerto, config_get_string_value(config, "PUERTO"));
@@ -33,7 +40,7 @@ int main(void)
 
 	/* ---------------- LEER DE CONSOLA ---------------- */
 
-	leer_consola(logger);
+	//leer_consola(logger);
 
 	/*---------------------------------------------------PARTE 3-------------------------------------------------------------*/
 
@@ -41,8 +48,14 @@ int main(void)
 
 	// Creamos una conexión hacia el servidor
 	conexion = crear_conexion(ip, puerto);
+	if(conexion == -1) // Error de conexion
+	{
+		log_error(logger, "Error al realizar conexion con el servidor");
+		return 0;
+	}
 
 	// Enviamos al servidor el valor de CLAVE como mensaje
+	enviar_mensaje(valor, conexion);
 
 	// Armamos y enviamos el paquete
 	paquete(conexion);
@@ -60,7 +73,7 @@ t_log* iniciar_logger(void)
 
 t_config* iniciar_config(void)
 {
-	return config_create("cliente.config");
+	return config_create("../cliente.config");
 }
 
 void leer_consola(t_log* logger)
@@ -98,4 +111,5 @@ void terminar_programa(int conexion, t_log* logger, t_config* config)
 
 	log_destroy(logger);
 	config_destroy(config);
+	liberar_conexion(conexion);
 }
