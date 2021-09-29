@@ -14,6 +14,7 @@
 t_log* iniciar_logger(void);
 t_config* iniciar_config(void);
 void leer_consola(t_log*);
+void enviar_mensaje_por_consola(t_log* logger, int conexion);
 void paquete(int);
 void terminar_programa(int, t_log*, t_config*);
 
